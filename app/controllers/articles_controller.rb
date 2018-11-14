@@ -44,7 +44,6 @@ class ArticlesController < ApplicationController
   # receives form data from the edit view to update the database entry.
   def update
     @article = Article.find params[:id]
-
     if @article.update article_from_parameters
       redirect_to @article
     else

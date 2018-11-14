@@ -1,6 +1,6 @@
-<h1>Listing articles</h1>
+<h1 class="author-show name"><%= @author.name %></h1>
+<h3 class="author-show email"><%=@author.email %></h3>
 
-<%= link_to "Make new stuff", new_article_path %>
 
 <table>
   <tr>
@@ -10,7 +10,7 @@
     <th>Actions</th>
   </tr>
 
-  <% @articles.each do |article| %>
+  <% @author.articles.each do |article| %>
     <tr>
       <td><%= article.title %></td>
       <% if article.summarize? %>
@@ -18,7 +18,7 @@
       <% else %>
       <td><%= article.text %></td>
       <% end %>
-      <td><%= link_to article.author.name, article.author %></td>
+      <td><%= link_to @author.name, @author %></td>
       <td><%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you certain?"} %></td>
       <td><%= link_to "Edit", edit_article_path(article) %></td>
     </tr>
