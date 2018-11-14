@@ -1,0 +1,27 @@
+<%= form_with model: @article, local: true do |form| %>
+  <% if @article.errors.any? %>
+    <div class="article error-explanation">
+      <h2 class="article error-explanation">
+        <%= pluralize @article.errors.count, "error" %> prevented submission:
+      </h2>
+      <ul>
+        <% @article.errors.full_messages.each do |err| %>
+          <li><%= err %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="article form-field" id="text">
+    <%= form.label :title %><br/>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="article form-field" id="text">
+    <%= form.label :text %><br/>
+    <%= form.text_field :text %>
+  </div>
+
+  <div class="article form-field" id="submit">
+    <%= form.submit %>
+  </div>
+<% end %>
