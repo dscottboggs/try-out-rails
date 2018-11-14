@@ -7,33 +7,11 @@
 <% if @article.comments.any? %>
 <div class="article comments">
   <h2>Comments</h2>
-  <% @article.comments.each do |comment| %>
-  <div class="article comment-show parent">
-    <div class="article comment-show author">Author: <%= comment.commenter %></div>
-    <div class="article comment-show content">Comment: <%= comment.body %></div>
-  </div>
-  <% end %>
+  <%= render @article.comments %>
 </div>
 <% end %>
 
-<%=
-  form_with(
-    model: [ @article, @article.comments.build ],
-    local: true
-  ) do |form|
-%>
-  <div class="article comment-form" id="commenter">
-    <%= form.label :commenter %><br/>
-    <%= form.text_field :commenter %>
-  </div>
-  <div class="article comment-form" id="body">
-    <% form.label :body %><br/>
-    <% form.text_area :body %>
-  </div>
-  <div class="article comment-form" id="submit">
-    <% form.submit %>
-  </div>
-<% end %>
+<%= render 'comments/form' %>
 
 <%= link_to "Edit", edit_article_path(@article) %> |
 <%= link_to "Back", controller: articles_path %>

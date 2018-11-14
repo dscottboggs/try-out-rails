@@ -1,0 +1,18 @@
+<%=
+  form_with(
+    model: [ @article, @article.comments.build ],
+    local: true
+  ) do |form|
+%>
+  <div class="article comment-form" id="commenter">
+    <%= form.label :commenter %><br/>
+    <%= form.text_field :commenter %>
+  </div>
+  <div class="article comment-form" id="body">
+    <%= form.label :body %><br/>
+    <%= form.text_area :body %>
+  </div>
+  <div class="article comment-form" id="submit">
+    <%= form.submit %>
+  </div>
+<% end %>

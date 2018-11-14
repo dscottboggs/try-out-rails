@@ -1,0 +1,16 @@
+<div class="article comment-show parent">
+  <div class="article comment-show author">
+    <span class=title>Author: </span><%= comment.commenter %>
+  </div>
+  <div class="article comment-show content">
+    <span class=title>Comment:</span> <%= comment.body %>
+  </div>
+  <div class="article comment-show delete-link">
+    <%= link_to(
+      "Delet this",
+      [ comment.article, comment ],
+      method: :delete,
+      data: { confirm: "Are you sure?" }
+    ) %>
+  </div>
+</div>
