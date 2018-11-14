@@ -91,4 +91,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+
+  # devise config
+  config.action_mailer.default_url_options = { host: 'rails.tams.tech', port: 443 }
 end
